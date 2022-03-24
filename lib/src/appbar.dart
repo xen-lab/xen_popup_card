@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-/// 
+///
 /// Xen Card App bar
-///  
+///
 class XenCardAppBar extends StatelessWidget {
   /// The main widget of the appbar
   ///

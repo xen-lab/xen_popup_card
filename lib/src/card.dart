@@ -15,7 +15,7 @@ class XenPopupCard extends StatelessWidget {
   /// The padding for body
   ///
   /// [Default] : 20
-  /// 
+  ///
   final double? padding;
 
   /// The top part of the card
