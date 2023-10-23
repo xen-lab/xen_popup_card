@@ -1,9 +1,19 @@
 import 'package:flutter/material.dart';
 
-import 'appbar.dart';
-import 'gutter.dart';
+import 'package:xen_popup_card/src/appbar.dart';
+import 'package:xen_popup_card/src/gutter.dart';
 
 class XenPopupCard extends StatelessWidget {
+  const XenPopupCard({
+    required this.body,
+    Key? key,
+    this.padding,
+    this.appBar,
+    this.gutter,
+    this.cardBgColor,
+    this.borderRadius,
+  }) : super(key: key);
+
   /// The main part of the card
   ///
   /// [Widget] body: required
@@ -14,13 +24,13 @@ class XenPopupCard extends StatelessWidget {
 
   /// The padding for body
   ///
-  /// [Default] : 20
-  /// 
+  /// `default` : 20
+  ///
   final double? padding;
 
   /// The top part of the card
   ///
-  /// [Default] : SizedBox()
+  /// `default` : SizedBox()
   ///
   /// [XenCardAppBar] : To create a default card app bar
   ///
@@ -33,7 +43,7 @@ class XenPopupCard extends StatelessWidget {
 
   /// The bottom part of the card
   ///
-  /// [Default] : XenCardGutter()
+  /// `default` : XenCardGutter()
   ///
   /// [XenCardGutter] : To customize default gutter
   ///
@@ -41,39 +51,30 @@ class XenPopupCard extends StatelessWidget {
 
   /// The border radius of the card
   ///
-  /// [Default] : 10
+  /// `default` : 10
   ///
-  /// Alternately you can set border by using [XenCardGutter] to set bottom border
-  /// and [XenCardAppBar] to set top border
+  /// Alternately you can set border by using [XenCardGutter] 
+  /// to set bottom border and [XenCardAppBar] to set top border
   ///
   final double? borderRadius;
 
   /// The background color of the card
   ///
-  /// [Default] : Colors.white
+  /// `default` : Colors.white
   ///
   final Color? cardBgColor;
 
-  const XenPopupCard(
-      {Key? key,
-      required this.body,
-      this.padding,
-      this.appBar,
-      this.gutter,
-      this.cardBgColor,
-      this.borderRadius})
-      : super(key: key);
-
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size;
     return Container(
       // margin
       margin: EdgeInsets.only(
-          left: size.width * 0.15 / 2,
-          right: size.width * 0.15 / 2,
-          top: size.height * 0.1,
-          bottom: size.height * 0.1),
+        left: size.width * 0.15 / 2,
+        right: size.width * 0.15 / 2,
+        top: size.height * 0.1,
+        bottom: size.height * 0.1,
+      ),
       // material with border radius
       child: Material(
         borderRadius: BorderRadius.circular(borderRadius ?? 20),
@@ -82,20 +83,24 @@ class XenPopupCard extends StatelessWidget {
           children: [
             // body
             Padding(
-                padding: EdgeInsets.only(
-                    top: appBar == null ? 20 : 80,
-                    bottom: padding ?? 20,
-                    left: padding ?? 20,
-                    right: padding ?? 20),
-                child: body),
+              padding: EdgeInsets.only(
+                top: appBar == null ? 20 : 80,
+                bottom: padding ?? 20,
+                left: padding ?? 20,
+                right: padding ?? 20,
+              ),
+              child: body,
+            ),
             // appbar
             Align(
-                alignment: Alignment.topCenter,
-                child: appBar ?? const SizedBox()),
+              alignment: Alignment.topCenter,
+              child: appBar ?? const SizedBox(),
+            ),
             // gutter
             Align(
-                alignment: Alignment.bottomCenter,
-                child: gutter ?? const SizedBox())
+              alignment: Alignment.bottomCenter,
+              child: gutter ?? const SizedBox(),
+            ),
           ],
         ),
       ),
