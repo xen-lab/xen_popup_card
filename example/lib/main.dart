@@ -1,6 +1,6 @@
 import 'package:example/ui/button.dart';
 import 'package:flutter/material.dart';
-import 'package:xen_popup_card/xen_card.dart';
+import 'package:xen_popup_card/xen_popup_card.dart';
 
 void main() {
   runApp(const MaterialApp(home: ExampleApp()));
