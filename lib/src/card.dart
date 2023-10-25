@@ -53,7 +53,7 @@ class XenPopupCard extends StatelessWidget {
   ///
   /// `default` : 10
   ///
-  /// Alternately you can set border by using [XenCardGutter] 
+  /// Alternately you can set border by using [XenCardGutter]
   /// to set bottom border and [XenCardAppBar] to set top border
   ///
   final double? borderRadius;
